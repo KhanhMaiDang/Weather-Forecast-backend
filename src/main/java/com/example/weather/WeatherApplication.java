@@ -1,12 +1,16 @@
 package com.example.weather;
 
+import com.example.weather.controller.DatabaseController;
 import com.example.weather.models.Location;
+import com.example.weather.models.Weather;
 import com.example.weather.services.externalServices.NominatimReverseGeocoding;
 import com.example.weather.services.externalServices.implementation.NominatimReverseGeocodingImpl;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.List;
 
 @OpenAPIDefinition
 @SpringBootApplication
@@ -27,6 +31,10 @@ public class WeatherApplication {
 //		log.info("Location 2 is {}", res2);
 //		log.info("Location 3 is {}", res3);
 //		log.info("Location 4 is {}", res4);
+
+//		DatabaseController databaseController = new DatabaseController();
+//		List<Weather> list = databaseController.findAll();
+//		System.out.println(list.size());
 	}
 
 }

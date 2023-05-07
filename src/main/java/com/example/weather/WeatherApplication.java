@@ -11,6 +11,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
+import java.util.TimeZone;
 
 @OpenAPIDefinition
 @SpringBootApplication
@@ -18,6 +19,7 @@ import java.util.List;
 public class WeatherApplication {
 
 	public static void main(String[] args) {
+		TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
 		SpringApplication.run(WeatherApplication.class, args);
 
 //		NominatimReverseGeocoding nominatimReverseGeocoding = new NominatimReverseGeocodingImpl();

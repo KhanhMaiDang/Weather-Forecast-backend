@@ -5,12 +5,14 @@ import com.example.weather.models.Location;
 import com.example.weather.models.Weather;
 import com.example.weather.services.externalServices.NominatimReverseGeocoding;
 import com.example.weather.services.externalServices.implementation.NominatimReverseGeocodingImpl;
+import com.example.weather.utils.StringUtils;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
+import java.util.TimeZone;
 
 @OpenAPIDefinition
 @SpringBootApplication
@@ -18,6 +20,7 @@ import java.util.List;
 public class WeatherApplication {
 
 	public static void main(String[] args) {
+		TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
 		SpringApplication.run(WeatherApplication.class, args);
 
 //		NominatimReverseGeocoding nominatimReverseGeocoding = new NominatimReverseGeocodingImpl();
@@ -32,9 +35,15 @@ public class WeatherApplication {
 //		log.info("Location 3 is {}", res3);
 //		log.info("Location 4 is {}", res4);
 
-//		DatabaseController databaseController = new DatabaseController();
-//		List<Weather> list = databaseController.findAll();
-//		System.out.println(list.size());
+//		String s = "Hải Phòng";
+//		String s2 = "Hồ Chí Minh";
+//		String s3 = "Hải Dương";
+//		String res = StringUtils.removeAccent(s);
+//		String res2 = StringUtils.removeAccent(s2);
+//		String res3 = StringUtils.removeAccent(s3);
+//		System.out.println(res);
+//		System.out.println(res2);
+//		System.out.println(res3);
 	}
 
 }

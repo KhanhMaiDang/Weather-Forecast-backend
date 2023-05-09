@@ -20,7 +20,9 @@ public class MongoConfig {
 
     @Bean
     public static MongoTemplate mongoTemplate(){
-        MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
+        //mongoDB Atlas
+        MongoClient mongoClient = MongoClients.create("mongodb+srv://grab:admin4321@cluster0.nqxzihj.mongodb.net/?retryWrites=true&w=majority");
+        //MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017"); mongoDB local
         MongoTemplate mongoTemplate = new MongoTemplate(mongoClient, "weatherDB");
         return mongoTemplate;
     }

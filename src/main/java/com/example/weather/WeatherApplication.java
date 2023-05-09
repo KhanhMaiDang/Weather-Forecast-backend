@@ -1,6 +1,5 @@
 package com.example.weather;
 
-import com.example.weather.controller.DatabaseController;
 import com.example.weather.models.Location;
 import com.example.weather.models.Weather;
 import com.example.weather.services.externalServices.NominatimReverseGeocoding;

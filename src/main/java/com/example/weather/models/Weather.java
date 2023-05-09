@@ -9,7 +9,8 @@ import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
 @Getter @Setter
-@Document(collection = "weather_test")
+@Document(collection = "weather")
+//@Document(collection = "weather_test") // mongoDB local
 public class  Weather {
     private String _id;
 
@@ -49,4 +50,8 @@ public class  Weather {
     private String sunrise;
     private int winddirDegree;
     private double sunHour;
+    @Field(name = "weather_status")
+    private String weatherStatus;
+    @Field(name = "avgtempC")
+    private double avgTempC;
 }

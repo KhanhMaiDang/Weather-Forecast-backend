@@ -44,7 +44,7 @@ public class  Weather {
     private String moonset;
     private String sunset;
     private int visibility;
-    @Field(name = "HeatIndexC")
+    @Field(name = "HeatIndexC   ")
     private int heatIndexC;
     private String sunrise;
     private int winddirDegree;

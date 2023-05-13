@@ -31,7 +31,8 @@ public class WeatherServiceImpl implements WeatherService {
 
     @Override
     public List<Weather> findWeatherByLocationInDateTimeRange(String location, LocalDateTime startDate, LocalDateTime endDate) {
-        return weatherRepository.findWeatherByLocationAndDateTimeBetween(location,startDate, endDate);
+        String locationName = StringUtils.removeAccent(location);
+        return weatherRepository.findWeatherByLocationAndDateTimeBetween(locationName,startDate, endDate);
     }
 
     @Override

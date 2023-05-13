@@ -9,6 +9,7 @@ import com.example.weather.utils.StringUtils;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,13 +25,14 @@ public class WeatherController {
         this.weatherService = weatherService;
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/weathers")
     public ResponseEntity<List<Weather>> getWeatherAtLocationInDateTimeRange(@RequestParam Double latitude,
-                                                               @RequestParam Double longitude,
-                                                               @RequestParam @Parameter(description = "Format: yyyy-mm-ddThh:mm:ss")
-                                                                       LocalDateTime startDateTime, //yyyy-mm-ddThh:mm:ss
-                                                               @RequestParam @Parameter(description = "Format: yyyy-mm-ddThh:mm:ss")
-                                                                                         LocalDateTime endDateTime){
+                                                                             @RequestParam Double longitude,
+                                                                             @RequestParam @Parameter(description = "Format: yyyy-mm-ddThh:mm:ss")
+                                                                             LocalDateTime startDateTime, //yyyy-mm-ddThh:mm:ss
+                                                                             @RequestParam @Parameter(description = "Format: yyyy-mm-ddThh:mm:ss")
+                                                                             LocalDateTime endDateTime) {
 
         List<Weather> weatherList = weatherService.findWeatherByLatLongInDateTimeRange(latitude, longitude, startDateTime, endDateTime);
         return ResponseEntity.ok(weatherList);

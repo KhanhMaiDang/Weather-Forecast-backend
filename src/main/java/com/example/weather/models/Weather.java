@@ -18,13 +18,13 @@ public class Weather {
     @Field(name = "date_time")
     private LocalDateTime dateTime;
 
-//    @Field(name = "location_id")
-//    private String locationId;
+    @Field(name = "location_id")
+    private String locationId;
 
     private String location;
 
-    @Field(name = "truth_location")
-    private String truthLocation;
+//    @Field(name = "truth_location")
+//    private String truthLocation;
 
     @Field(name = "weather_status")
     private String weatherStatus;

@@ -8,11 +8,9 @@ import com.example.weather.services.externalServices.NominatimReverseGeocoding;
 import com.example.weather.services.externalServices.implementation.NominatimReverseGeocodingImpl;
 import com.example.weather.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 import java.util.List;
 
 @Service
@@ -31,7 +29,8 @@ public class WeatherServiceImpl implements WeatherService {
 
     @Override
     public List<Weather> findWeatherByLocationInDateTimeRange(String location, LocalDateTime startDate, LocalDateTime endDate) {
-        return weatherRepository.findWeatherByLocationAndDateTimeBetween(location,startDate, endDate);
+        String locationName = StringUtils.removeAccent(location);
+        return weatherRepository.findWeatherByLocationAndDateTimeBetween(locationName,startDate, endDate);
     }
 
     @Override
@@ -51,6 +50,7 @@ public class WeatherServiceImpl implements WeatherService {
 
             }
         }
+
         return weatherRepository.findWeatherByLocationAndDateTimeBetween(locationName, startDate, endDate);
     }
 

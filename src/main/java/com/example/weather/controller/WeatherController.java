@@ -1,13 +1,8 @@
 package com.example.weather.controller;
 
-import com.example.weather.models.Location;
 import com.example.weather.models.Weather;
 import com.example.weather.services.WeatherService;
-import com.example.weather.services.externalServices.NominatimReverseGeocoding;
-import com.example.weather.services.externalServices.implementation.NominatimReverseGeocodingImpl;
-import com.example.weather.utils.StringUtils;
 import io.swagger.v3.oas.annotations.Parameter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

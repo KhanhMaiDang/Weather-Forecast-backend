@@ -8,8 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
-@Getter
-@Setter
+@Getter @Setter
 @Document(collection = "weather")
 //@Document(collection = "weather_test") // mongoDB local
 public class Weather {
@@ -42,7 +41,7 @@ public class Weather {
 
     @Field(name = "mintempC")
     private int minTempC;
-
+  
     @Field(name = "DewPointC")
     private int dewPointC;
 
@@ -74,7 +73,6 @@ public class Weather {
     private int cloudCover;
 
     private int uvIndex;
-
     private double sunHour;
 
     private String sunrise;

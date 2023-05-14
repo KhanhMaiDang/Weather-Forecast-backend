@@ -8,11 +8,9 @@ import com.example.weather.services.externalServices.NominatimReverseGeocoding;
 import com.example.weather.services.externalServices.implementation.NominatimReverseGeocodingImpl;
 import com.example.weather.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 import java.util.List;
 
 @Service
@@ -52,6 +50,7 @@ public class WeatherServiceImpl implements WeatherService {
 
             }
         }
+
         return weatherRepository.findWeatherByLocationAndDateTimeBetween(locationName, startDate, endDate);
     }
 

@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
 @Getter @Setter
-@Document(collection = "weather_1H")
+@Document(collection = "weather")
 //@Document(collection = "weather_test") // mongoDB local
 public class  Weather {
     private String _id;
@@ -17,15 +17,18 @@ public class  Weather {
     @Field(name = "date_time")
     private LocalDateTime dateTime;
 
-    private double precipMM;
+    @Field(name = "precipMM")
+    private double precipitationMM;
 
     @Field(name = "WindGustKmph")
     private int windGustKmph;
     @Field(name = "DewPointC")
     private int dewPointC;
     private int pressure;
-    private int maxtempC;
-    private int cloudcover;
+    @Field(name = "maxtempC")
+    private int maxTempC;
+    @Field(name = "cloudcover")
+    private int cloudCover;
     @Field(name = "totalSnow_cm")
     private double totalSnowCm;
     @Field(name = "windspeedKmph")
@@ -34,6 +37,8 @@ public class  Weather {
 
     @Field(name="location_id")
     private String locationId;
+    @Field(name = "truth_location")
+    private String truthLocation;
     @Field(name = "moon_illumination")
     private int moonIllumination;
     private int tempC;
@@ -41,14 +46,16 @@ public class  Weather {
     private int uvIndex;
     @Field("FeelsLikeC")
     private int feelsLikeC;
-    private int mintempC;
+    @Field(name = "mintempC")
+    private int minTempC;
     private String moonset;
     private String sunset;
     private int visibility;
-    @Field(name = "HeatIndexC   ")
+    @Field(name = "HeatIndexC")
     private int heatIndexC;
     private String sunrise;
-    private int winddirDegree;
+    @Field(name="winddirDegree")
+    private int windDirDegree;
     private double sunHour;
     @Field(name = "weather_status")
     private String weatherStatus;

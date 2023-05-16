@@ -2,6 +2,8 @@ package com.example.weather;
 
 import com.example.weather.models.Location;
 import com.example.weather.models.Weather;
+import com.example.weather.models.WeatherForecasting;
+import com.example.weather.repository.WeatherForecastingRepository;
 import com.example.weather.services.externalServices.NominatimReverseGeocoding;
 import com.example.weather.services.externalServices.implementation.NominatimReverseGeocodingImpl;
 import com.example.weather.utils.StringUtils;

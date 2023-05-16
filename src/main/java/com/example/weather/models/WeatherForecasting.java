@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Document(collection = "weather_prediction")
-public class WeatherPrediction {
+public class WeatherForecasting {
     @Field(name = "_id")
     private String id;
     private String location;

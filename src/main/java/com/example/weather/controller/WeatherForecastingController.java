@@ -1,5 +1,6 @@
 package com.example.weather.controller;
 
+import com.example.weather.models.DayForecasting;
 import com.example.weather.models.WeatherForecasting;
 import com.example.weather.services.WeatherForecastingService;
 import org.springframework.http.ResponseEntity;
@@ -25,5 +26,12 @@ public class WeatherForecastingController {
         List<WeatherForecasting> forecastingList = forecastingService.getHourlyWeatherForecast(locationName, currentDateTime);
 
         return ResponseEntity.ok(forecastingList);
+    }
+
+    @GetMapping("/weekly")
+    public ResponseEntity<List<DayForecasting>> getWeeklyWeatherForecast(@RequestParam String locationName, @RequestParam LocalDateTime currentDateTime){
+        List<DayForecasting> weeklyForecastingList = forecastingService.getWeeklyWeatherForecast(locationName, currentDateTime);
+
+        return ResponseEntity.ok(weeklyForecastingList);
     }
 }

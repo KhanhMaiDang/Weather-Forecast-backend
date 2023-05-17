@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@Document(collection = "weather_prediction")
+@Document(collection = "weather_forecast")
 public class WeatherForecasting {
     @Field(name = "_id")
     private String id;
@@ -19,6 +19,5 @@ public class WeatherForecasting {
     @Field(name = "date_time")
     private LocalDateTime dateTime;
     private int tempC;
-    @Field(name = "raining")
-    private boolean isRaining;
+    private int isRaining;
 }

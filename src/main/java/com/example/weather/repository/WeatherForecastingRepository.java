@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface WeatherForecastingRepository extends MongoRepository<WeatherForecasting, String> {
-    @Query("{'location: ?0, 'date_time: {$gte: ?1, $lte: ?2} }")
+    //@Query("{'location': ?0, 'date_time': {$gte: ?1, $lte: ?2} }")
     public List<WeatherForecasting> findWeatherForecastingByLocationAndDateTimeBetween(String locationName, LocalDateTime startDateTime, LocalDateTime endDateTime);
 }

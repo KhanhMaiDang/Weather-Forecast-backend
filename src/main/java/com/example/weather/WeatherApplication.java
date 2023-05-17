@@ -46,8 +46,6 @@ public class WeatherApplication {
 //		System.out.println(res);
 //		System.out.println(res2);
 //		System.out.println(res3);
-
-		//WeatherForecastingServiceImpl weatherForecastingService = new WeatherForecastingServiceImpl();
 	}
 
 }

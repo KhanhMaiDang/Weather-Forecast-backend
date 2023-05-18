@@ -39,27 +39,33 @@ public class WeatherForecastingServiceImpl implements WeatherForecastingService 
             LocalDateTime currentDateTime = startDateTime.plusDays(day);
             List<WeatherForecasting> hourlyWeatherForecast = getHourlyWeatherForecast(locationName, currentDateTime);
 
-            String location = hourlyWeatherForecast.get(0).getLocation();
-            String locationId = hourlyWeatherForecast.get(0).getLocationId();
-            LocalDate date = hourlyWeatherForecast.get(0).getDateTime().toLocalDate();
-
-            int maxTempC = Integer.MIN_VALUE;
-            int minTempC = Integer.MAX_VALUE;
-            int totalIsRaining = 0;
-            int numHours = hourlyWeatherForecast.size();
-
-            for (WeatherForecasting weatherForecast : hourlyWeatherForecast) {
-                maxTempC = Math.max(maxTempC, weatherForecast.getTempC());
-                minTempC = Math.min(minTempC, weatherForecast.getTempC());
-                totalIsRaining += weatherForecast.getIsRaining();
-            }
-
-            int chanceOfRain = (totalIsRaining * 100) / numHours;
-            DayForecasting dayForecast = new DayForecasting(location, locationId, date, maxTempC, minTempC, chanceOfRain);
+            DayForecasting dayForecast = calculateDayForecast(hourlyWeatherForecast);
             weeklyForecastingList.add(dayForecast);
         }
 
         return weeklyForecastingList;
+    }
+
+    private DayForecasting calculateDayForecast(List<WeatherForecasting> hourlyWeatherForecast) {
+        String location = hourlyWeatherForecast.get(0).getLocation();
+        String locationId = hourlyWeatherForecast.get(0).getLocationId();
+        LocalDate date = hourlyWeatherForecast.get(0).getDateTime().toLocalDate();
+
+        int maxTempC = Integer.MIN_VALUE;
+        int minTempC = Integer.MAX_VALUE;
+        int totalIsRaining = 0;
+        int numHours = hourlyWeatherForecast.size();
+
+        for (WeatherForecasting weatherForecast : hourlyWeatherForecast) {
+            maxTempC = Math.max(maxTempC, weatherForecast.getTempC());
+            minTempC = Math.min(minTempC, weatherForecast.getTempC());
+            totalIsRaining += weatherForecast.getIsRaining();
+        }
+
+        int chanceOfRain = (totalIsRaining * 100) / numHours;
+        DayForecasting dayForecast = new DayForecasting(location, locationId, date, maxTempC, minTempC, chanceOfRain);
+
+        return dayForecast;
     }
 
 }

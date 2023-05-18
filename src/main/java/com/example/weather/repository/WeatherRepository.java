@@ -10,9 +10,9 @@ import java.util.List;
 
 @Repository
 public interface WeatherRepository extends MongoRepository<Weather, String> {
-    public List<Weather> findAllByLocation(String location);
+    List<Weather> findAllByLocation(String location);
 
     @Query("{ 'location': ?0, 'date_time': { $gte: ?1, $lte: ?2 } }")
-    public List<Weather> findWeatherByLocationAndDateTimeBetween(String location, LocalDateTime startDate, LocalDateTime endDate);
+    List<Weather> findWeatherByLocationAndDateTimeBetween(String location, LocalDateTime startDate, LocalDateTime endDate);
 
 }

@@ -7,8 +7,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface WeatherService {
-    public List<Weather> findWeatherByLocation(String location);
-    public List<Weather> findWeatherByLocationInDateTimeRange(String location, LocalDateTime startDate, LocalDateTime endDate);
-    public List<Weather> findWeatherByLatLongInDateTimeRange(double latitude, double longitude, LocalDateTime startDate, LocalDateTime endDate);
+    List<Weather> findWeatherByLocation(String location);
+    List<Weather> findWeatherByLocationInDateTimeRange(String location, LocalDateTime startDate, LocalDateTime endDate);
+    List<Weather> findWeatherByLatLongInDateTimeRange(double latitude, double longitude, LocalDateTime startDate, LocalDateTime endDate);
 
 }
